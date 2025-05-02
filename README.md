@@ -1,5 +1,6 @@
+This code is mostly for data analysis and preprocessing.
+
 # What each file does
----
 
 ## 📁 check and calculate
 ### calculate_avg.py
@@ -14,18 +15,16 @@ Count total hour for each animal ID. The code took time to execute so the output
 ### secondary_labels_count.py
 Count total of .ogg files that has no secondary and how many that got the secondary.
 
----
 ## 📁 edit the csv
-## split_call_type.py
+### split_call_type.py
 split the Train.csv by call_type to the folder ```type of call/```.
 
-## split_rating.py
+### split_rating.py
 Split the Train.csv by rating to the folder ```train.csv rating splitted/``` and count those rating counts.
 
-## split_train.py
+### split_train.py
 Create a new file ```train_cleaned.csv``` with only ```primary_label, secondary_labels, type, latitude, longitude``` to reduce the token count.
 
----
 
 ## fourier.py
 Pick and create a fourier of an ogg file to be created in fourier/ and can choose do delete frequency range.
