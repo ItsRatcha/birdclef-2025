@@ -15,6 +15,11 @@ spectrograms/
 test_soundscapes/
 *.csv
 *.db
+test/
+spec/
+test_spec/
+soundscape spectrogram/
+fourier/
 # Add any other common ignores you might need (optional, examples below)
 # # Ignore Python bytecode files
 # *.pyc
