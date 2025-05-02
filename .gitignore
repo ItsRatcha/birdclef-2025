@@ -11,6 +11,10 @@ readme.txt
 *.html
 train.csv rating splitted/
 type_of_call/
+spectrograms/
+test_soundscapes/
+*.csv
+*.db
 # Add any other common ignores you might need (optional, examples below)
 # # Ignore Python bytecode files
 # *.pyc
