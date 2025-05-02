@@ -3,7 +3,7 @@ import os
 
 def split_csv_by_rating(input_filename='train.csv', rating_column_index=5):
     """
-    Splits a CSV file into multiple files based on the rating in the sixth column
+    Splits a CSV file into multiple files based on the rating in intervals of 0.5
     and saves them into a new subdirectory.
 
     Args:
@@ -15,8 +15,8 @@ def split_csv_by_rating(input_filename='train.csv', rating_column_index=5):
     # Define the name of the output directory
     output_directory = "train.csv rating splitted"
 
-    # Dictionary to hold rows grouped by rating (0 to 5)
-    grouped_data = {i: [] for i in range(6)}
+    # Dictionary to hold rows grouped by rating intervals (0, 0.5, ..., 5)
+    grouped_data = {i / 2: [] for i in range(11)}
     header = None
     rows_processed = 0
 
@@ -33,7 +33,7 @@ def split_csv_by_rating(input_filename='train.csv', rating_column_index=5):
             except StopIteration:
                 print(f"Warning: '{input_filename}' appears to be empty or contains only a header.")
 
-            line_num = 1 # Start counting after header
+            line_num = 1  # Start counting after header
             for row in reader:
                 line_num += 1
                 rows_processed += 1
@@ -42,13 +42,15 @@ def split_csv_by_rating(input_filename='train.csv', rating_column_index=5):
                     rating_str = row[rating_column_index]
 
                     try:
-                        rating = int(rating_str)
+                        rating = float(rating_str)
 
                         if 0 <= rating <= 5:
-                            grouped_data[rating].append(row)
+                            # Round the rating to the nearest 0.5
+                            rounded_rating = round(rating * 2) / 2
+                            grouped_data[rounded_rating].append(row)
 
                     except ValueError:
-                        print(f"Warning: Row {line_num} has non-integer rating '{rating_str}', skipping row: {row}")
+                        print(f"Warning: Row {line_num} has non-numeric rating '{rating_str}', skipping row: {row}")
 
                 else:
                     print(f"Warning: Row {line_num} has insufficient columns ({len(row)}), expected at least {rating_column_index + 1}. Skipping row: {row}")
@@ -76,8 +78,8 @@ def split_csv_by_rating(input_filename='train.csv', rating_column_index=5):
 
     print(f"\nFinished reading {rows_processed} data rows. Writing output files to '{output_directory}'...")
 
-    # Iterate through the ratings we want to split by (0 through 5)
-    for rating in range(6):
+    # Iterate through the rating intervals we want to split by (0, 0.5, ..., 5)
+    for rating in grouped_data.keys():
         # Construct the base filename
         base_output_filename = f"data with {rating} rating.csv"
         # Construct the full path using os.path.join for cross-platform compatibility
