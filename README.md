@@ -42,6 +42,9 @@ Create spectrograms of any animal ID with the input of ID, max files and choice 
 ## map_visualizer.ipynb
 Create a html file of the world map with latitude and longitude of every animal ID mapped.
 
+## spectrogram_viewer.py
+Create a simple collage-style images with spectrograms from ```spectrograms/```
+
 ## tokenizer.py
 Count the token of .csv file, the default is using gpt2 to count the token of the file train_cleaned.csv
 
