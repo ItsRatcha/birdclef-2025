@@ -25,13 +25,10 @@ Split the Train.csv by rating to the folder ```train.csv rating splitted/``` and
 ### split_train.py
 Create a new file ```train_cleaned.csv``` with only ```primary_label, secondary_labels, type, latitude, longitude``` to reduce the token count.
 
-<<<<<<< HEAD
 ### low-resource.py
 Create a new file ```ogg_count.db``` to browse species by ogg file count
 
 ---
-=======
->>>>>>> d8bc17509e91d15f849f6f1c2785a53b3d85c502
 
 ## fourier.py
 Pick and create a fourier of an ogg file to be created in fourier/ and can choose do delete frequency range.
