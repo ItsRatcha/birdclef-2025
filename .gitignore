@@ -15,6 +15,9 @@ spectrograms/
 test_soundscapes/
 *.csv
 *.db
+*.svg
+*.png
+*.txt
 test/
 spec/
 test_spec/
