@@ -44,7 +44,7 @@ def display_spectrograms(main_folder, sub_folder, max_png_to_show):
 if __name__ == "__main__":
     # Example usage
     main_folder = "spectrograms"  # Path to the main folder
-    sub_folder = "bkmtou1"  # Subfolder to pick
+    sub_folder = "42087"  # Subfolder to pick
     max_png_to_show = 5  # Maximum number of PNGs to display
 
     display_spectrograms(main_folder, sub_folder, max_png_to_show)
